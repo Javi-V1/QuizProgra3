@@ -83,8 +83,28 @@ namespace Capa_Logica.Lista_Simple
                 nodoActual = nodoActual.Siguiente;
                 aux = null;
                 cabeza = nodoActual;
-            }      
+            } 
         
+        }
+        // Tarea Moral
+        public void Elimine_Ultimo_Nodo() {
+
+            if (Cabeza_No_Nula()) {
+
+                NodoInt nodoActual = cabeza;
+                if (nodoActual.Siguiente == null)
+                {
+                    Elimine_Nodo_Cabeza();
+                }
+                else
+                {
+                    while (nodoActual.Siguiente.Siguiente!=null)
+                    {
+                        nodoActual = nodoActual.Siguiente;
+                    }                
+                    nodoActual.Siguiente = null;
+                }         
+            }
         
         }
 
