@@ -30,7 +30,7 @@ namespace Capa_Logica.Lista_Simple
 
             NodoInt nodoActual = cabeza;
 
-            if (nodoActual != null)
+            if (Cabeza_No_Nula())
             {
                 Console.WriteLine("*-*-*-*Empieza Lista*-*-*-*");
                 while (nodoActual != null)
@@ -41,6 +41,38 @@ namespace Capa_Logica.Lista_Simple
                 }
                 Console.WriteLine("*-*-*-*Termina Lista*-*-*-*");
             }
+        }
+
+        public bool Cabeza_No_Nula() {
+
+            if (cabeza != null)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        public int Busque_Valor(int _valor_A_Buscar) {
+
+            int cantidad = 0;
+
+            if (Cabeza_No_Nula()) {
+
+                NodoInt nodoActual = cabeza;
+
+                while (nodoActual!=null)
+                {
+                    if (nodoActual.Valor == _valor_A_Buscar)
+                    { 
+                        //cantidad = cantidad + 1;
+                        cantidad++;
+                       
+                    }
+                    nodoActual = nodoActual.Siguiente;
+                }
+            }
+            return cantidad;  
         }
     }
 }
