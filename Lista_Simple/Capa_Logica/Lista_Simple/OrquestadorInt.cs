@@ -74,5 +74,24 @@ namespace Capa_Logica.Lista_Simple
             }
             return cantidad;  
         }
+        public void Elimine_Nodo_Cabeza() {
+
+            if (Cabeza_No_Nula())
+            {
+                NodoInt nodoActual = cabeza;
+                NodoInt aux = cabeza;
+                nodoActual = nodoActual.Siguiente;
+                aux = null;
+                cabeza = nodoActual;
+            }      
+        
+        
+        }
+
+
+
+
+
+
     }
 }
