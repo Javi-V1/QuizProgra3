@@ -75,24 +75,7 @@ namespace Capa_Logica.Lista_Simple
             } 
         
         }
-        /*private int Lista_Lenght()
-        {
-            if (Cabeza_No_Nula())
-            {
-                NodoInt nodoActual = cabeza;
-                int length = 0;
-                while (nodoActual != null)
-                {
-                    length++;
-                    nodoActual = nodoActual.Siguiente;
-                }
-                return length;
-            }
-            else
-            {
-                return 0;
-            }
-        }*/
+
         private void Eliminar_Interativo(NodoInt nodoPosicion, int _Cant_Nodos_Eliminados)
         {
             NodoInt nodoActual = nodoPosicion;
