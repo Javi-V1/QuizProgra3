@@ -7,6 +7,7 @@ namespace Capa_Logica.Lista_Simple
     public class OrquestadorInt
     {
         private NodoInt cabeza;
+        private int length = 0;
 
         public void Agregar_NodoInt(int valor) {
 
@@ -17,6 +18,7 @@ namespace Capa_Logica.Lista_Simple
                 cabeza = nodoNuevo;
                 nodoNuevo.Key = 0;
                 cabeza.Key = nodoNuevo.Key;
+                length++;
             }
             else {
 
@@ -29,6 +31,7 @@ namespace Capa_Logica.Lista_Simple
 
                 nodoActual.Siguiente = nodoNuevo;
                 nodoNuevo.Key = nodoActual.Key + 1;
+                length++;
             }
         }
 
@@ -72,7 +75,7 @@ namespace Capa_Logica.Lista_Simple
             } 
         
         }
-        private int Lista_Lenght()
+        /*private int Lista_Lenght()
         {
             if (Cabeza_No_Nula())
             {
@@ -89,19 +92,23 @@ namespace Capa_Logica.Lista_Simple
             {
                 return 0;
             }
-        }
-        private void Eliminar_Interativo(int _Key_Posicion, int _Cant_Nodos_Eliminados)
+        }*/
+        private void Eliminar_Interativo(NodoInt nodoPosicion, int _Cant_Nodos_Eliminados)
         {
-            NodoInt nodoActual = cabeza;
-
-            for(int i = 0; i>Lista_Lenght(); i++)
+            NodoInt nodoActual = nodoPosicion;
+            
+            int nodosDisponibles = _Cant_Nodos_Eliminados;
+            if(_Cant_Nodos_Eliminados >= length)
             {
-
+                nodosDisponibles = length - nodoActual.Key;
             }
-            NodoInt aux = nodoActual.Siguiente;
-            nodoActual.Siguiente = aux.Siguiente;
-            aux.Siguiente = null;
-            aux = null;
+            for (int i = 0; i < nodosDisponibles && nodoActual != null; i++)
+            {
+                NodoInt aux = nodoActual.Siguiente;
+                nodoActual.Siguiente = aux.Siguiente;
+                aux.Siguiente = null;
+                aux = null;
+            }
         }
         public void Eliminar_Varios_Nodos(int _Key_Posicion, int _Cant_Nodos_Eliminados)
         {
@@ -110,7 +117,7 @@ namespace Capa_Logica.Lista_Simple
                 NodoInt nodoActual= cabeza;
                 if(_Key_Posicion == 0)
                 {
-                    Elimine_Nodo_Cabeza(); 
+                    Eliminar_Interativo(nodoActual, _Cant_Nodos_Eliminados);
                 }
                 else
                 {
@@ -118,13 +125,15 @@ namespace Capa_Logica.Lista_Simple
                     {
                         nodoActual = nodoActual.Siguiente;
                     }
-                    
-                    if(nodoActual.Siguiente.Siguiente == null)
+
+                    if (nodoActual.Key == length)
                     {
                         nodoActual.Siguiente = null;
                     }
                     else
                     {
+                        
+                        Eliminar_Interativo(nodoActual, _Cant_Nodos_Eliminados);
                         
                     }
                 }
