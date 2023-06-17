@@ -109,7 +109,7 @@ namespace Capa_Logica.Lista_Simple
                         nodoActual = nodoActual.Siguiente;
                     }
 
-                    if (nodoActual.Key == length)
+                    if (nodoActual.Key+1 == length)
                     {
                         nodoActual.Siguiente = null;
                     }
