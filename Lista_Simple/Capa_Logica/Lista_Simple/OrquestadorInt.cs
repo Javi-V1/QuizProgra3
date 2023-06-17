@@ -87,7 +87,7 @@ namespace Capa_Logica.Lista_Simple
             }
             for (int i = 0; i < nodosDisponibles && nodoActual != null; i++)
             {
-                NodoInt aux = nodoActual.Siguiente;
+                NodoInt? aux = nodoActual.Siguiente;
                 nodoActual.Siguiente = aux.Siguiente;
                 aux.Siguiente = null;
                 aux = null;
@@ -100,7 +100,7 @@ namespace Capa_Logica.Lista_Simple
                 NodoInt nodoActual= cabeza;
                 if(_Key_Posicion == 0)
                 {
-                    Eliminar_Interativo(nodoActual, _Cant_Nodos_Eliminados);
+                    Elimine_Nodo_Cabeza();
                 }
                 else
                 {
